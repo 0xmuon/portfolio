@@ -1,6 +1,3 @@
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-
 const projects = [
   {
     title: 'FightScript',
@@ -25,78 +22,65 @@ const projects = [
     tags: ['Python', 'ML', 'Data Science', 'Scikit-learn'],
     link: 'https://github.com/0xmuon/Warranty-fraud-detection-system',
     github: 'https://github.com/0xmuon/Warranty-fraud-detection-system'
+  },
+  {
+    title: 'dsastress',
+    year: '2025',
+    description:
+      'Rust-based CLI tool to stress-test DSA / competitive programming solutions by generating random tests, running your solution and an optional brute-force reference, and stopping on the first mismatch.',
+    tags: ['Rust', 'CLI', 'Competitive Programming', 'Testing'],
+    link: 'https://github.com/0xmuon/dsastress',
+    github: 'https://github.com/0xmuon/dsastress'
   }
 ]
 
 export function Featured() {
   return (
-    <section className="py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-8 flex justify-between items-start">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Featured Projects
-          </h2>
-          <a 
+    <section className="py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto font-mono text-xs sm:text-sm text-emerald-300">
+        <p className="mb-3">C:\&gt; dir featured_projects</p>
+        {projects.map((project, index) => (
+          <div key={index} className="mb-4">
+            <p className="text-emerald-200">
+              [{project.year}] {project.title}
+            </p>
+            <p className="ml-2">{project.description}</p>
+            <p className="ml-2 text-emerald-400">
+              tech: {project.tags.join(', ')}
+            </p>
+            <p className="ml-2">
+              open:{" "}
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                site
+              </a>{" "}
+              |{" "}
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                code
+              </a>
+            </p>
+          </div>
+        ))}
+        <p className="mt-2">
+          C:\&gt; more projects on{" "}
+          <a
             href="https://github.com/0xmuon"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs sm:text-sm text-accent hover:text-accent/80 transition flex items-center gap-1"
+            className="underline"
           >
-            View all <ArrowRight className="w-3 h-3" />
+            GitHub
           </a>
-        </div>
-
-        <div className="space-y-6">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className="group border border-border rounded-lg p-6 hover:border-accent hover:bg-secondary/50 transition-all"
-            >
-              <div className="flex justify-between items-start gap-4 mb-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground group-hover:text-accent transition">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground">{project.year}</p>
-                </div>
-              </div>
-
-              <p className="text-sm text-muted-foreground mb-4">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag, tagIndex) => (
-                  <span 
-                    key={tagIndex}
-                    className="text-xs px-2 py-1 rounded-full bg-secondary text-foreground"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-4 text-sm">
-                <a 
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent hover:text-accent/80 transition flex items-center gap-1"
-                >
-                  View <ArrowRight className="w-3 h-3" />
-                </a>
-                <a 
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition flex items-center gap-1"
-                >
-                  Code <ArrowRight className="w-3 h-3" />
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+        </p>
       </div>
     </section>
   )

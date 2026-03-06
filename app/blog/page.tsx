@@ -17,18 +17,18 @@ export default function BlogPage() {
     <main className="min-h-screen bg-background text-foreground">
       <Navigation />
 
-      <section className="px-4 py-16 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        <div className="mb-10">
-          <h1 className="text-3xl font-bold mb-3 text-pretty">Blog</h1>
-          <p className="text-muted-foreground">
-            Articles about Rust, Web3, Web Development, and more.
+      <section className="px-4 py-12 sm:px-6 lg:px-8 max-w-3xl mx-auto">
+        <div className="font-mono text-xs sm:text-sm text-emerald-300 space-y-4">
+          <p>C:\&gt; blog</p>
+          <p className="ml-2 text-emerald-200">
+            listing posts (most recent first)...
           </p>
-        </div>
-
-        <div className="space-y-5">
-          {sortedPosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
-          ))}
+          <div className="space-y-4 mt-4">
+            {sortedPosts.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+          <p className="mt-4">C:\&gt; _</p>
         </div>
       </section>
 

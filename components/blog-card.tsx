@@ -1,5 +1,4 @@
 import { BlogPost } from '@/data/blog-posts'
-import { Clock } from 'lucide-react'
 import Link from 'next/link'
 
 interface BlogCardProps {
@@ -14,28 +13,23 @@ export function BlogCard({ post }: BlogCardProps) {
   })
 
   return (
-    <Link href={post.link} target="_blank" rel="noopener noreferrer">
-      <div className="group border border-border rounded-lg p-6 hover:border-accent hover:bg-secondary/50 transition-colors cursor-pointer">
-        <div className="flex justify-between items-start mb-3">
-          <span className="inline-block px-3 py-1 bg-secondary rounded-full text-sm text-foreground">
-            {post.category}
-          </span>
-          <span className="text-sm text-muted-foreground">{formattedDate}</span>
-        </div>
-
-        <h2 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
+    <div className="font-mono text-xs sm:text-sm text-emerald-300">
+      <p>
+        <span className="text-emerald-200">[{formattedDate}]</span>{' '}
+        <span className="text-emerald-100">{post.category}</span>
+      </p>
+      <p className="ml-2">
+        <Link
+          href={post.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
           {post.title}
-        </h2>
-
-        <p className="text-muted-foreground mb-4 leading-relaxed">{post.excerpt}</p>
-
-        <div className="flex gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <Clock className="w-4 h-4" />
-            {post.readTime} min
-          </div>
-        </div>
-      </div>
-    </Link>
+        </Link>{' '}
+        ({post.readTime} min)
+      </p>
+      <p className="ml-2 text-emerald-400">{post.excerpt}</p>
+    </div>
   )
 }

@@ -1,23 +1,12 @@
 import Link from 'next/link'
+import { CliWindow } from '@/components/cli-window'
 
 export function Hero() {
   return (
     <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <div className="border border-border bg-black">
-          <div className="flex items-center justify-between px-2 py-1 bg-[#000080] text-xs text-white">
-            <span className="flex items-center gap-1">
-              <span className="h-3 w-3 bg-black border border-white" />
-              <span className="font-semibold">C:\0xmuon - Command Prompt</span>
-            </span>
-            <span className="flex items-center gap-1 text-[10px]">
-              <span className="border border-white px-1">_</span>
-              <span className="border border-white px-1">□</span>
-              <span className="border border-white px-1">X</span>
-            </span>
-          </div>
-
-          <div className="px-3 py-4 sm:px-4 sm:py-5 font-mono text-xs sm:text-sm text-emerald-300 space-y-2">
+        <CliWindow>
+          <div className="space-y-2">
             <p>C:\&gt; whoami</p>
             <p>Rudraksh Joshi (0xmuon)</p>
 
@@ -42,7 +31,7 @@ export function Hero() {
 
             <p className="pt-1">C:\&gt; _</p>
           </div>
-        </div>
+        </CliWindow>
 
         <div className="flex justify-center gap-4 text-xs sm:text-sm mt-4 text-muted-foreground">
           <a 
