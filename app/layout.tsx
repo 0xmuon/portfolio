@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Rudraksh Joshi | Developer & Builder',
-  description: 'Portfolio and blog of Rudraksh Joshi - Rust, Next.js, and Web3 developer from Surat, Gujarat',
+  title: 'Rudraksh Joshi | New learner',
+  description: 'Portfolio and log of a new learner – exploring Rust, Next.js, Web3, and low-level bits/bytes from Surat, Gujarat.',
   generator: 'v0.app',
 }
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${_geistMono.className} antialiased bg-background text-foreground`}>{children}</body>
     </html>
   )
 }
